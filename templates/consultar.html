@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2>🔍 Consultar Estado del Reporte</h2>
+
+<p class="subtitulo">
+
+    Introduzca el código de seguimiento que recibió al registrar su reporte.
+
+</p>
+
+<form method="POST">
+
+    <label>Código de Seguimiento:</label>
+
+    <input
+        type="text"
+        name="codigo"
+        placeholder="Ejemplo: TR-00001"
+        required>
+
+    <input
+        type="submit"
+        value="🔍 Buscar Reporte">
+
+</form>
+
+{% if reporte %}
+
+<div class="tarjeta-reporte">
+
+    <h3>📋 Información del Reporte</h3>
+
+    <hr>
+
+    <div class="fila">
+
+        <strong>🔖 Código</strong>
+
+        <span>{{ reporte[0] }}</span>
+
+    </div>
+
+    <div class="fila">
+
+        <strong>👤 Ciudadano</strong>
+
+        <span>{{ reporte[1] }}</span>
+
+    </div>
+
+    <div class="fila">
+
+        <strong>📍 Barrio</strong>
+
+        <span>{{ reporte[2] }}</span>
+
+    </div>
+
+    <div class="fila">
+
+        <strong>⚠️ Tipo de Problema</strong>
+
+        <span>{{ reporte[3] }}</span>
+
+    </div>
+
+    <div class="fila">
+
+        <strong>📅 Fecha del Reporte</strong>
+
+        <span>{{ reporte[6] }}</span>
+
+    </div>
+
+    <div class="fila">
+
+        <strong>Estado</strong>
+
+        {% if reporte[5] == "Pendiente" %}
+
+            <span class="estado pendiente">
+                🟡 {{ reporte[5] }}
+            </span>
+
+        {% elif reporte[5] == "En proceso" %}
+
+            <span class="estado proceso">
+                🟠 {{ reporte[5] }}
+            </span>
+
+        {% elif reporte[5] == "Resuelto" %}
+
+            <span class="estado resuelto">
+                🟢 {{ reporte[5] }}
+            </span>
+
+        {% endif %}
+
+    </div>
+
+    <div class="descripcion">
+
+        <strong>📝 Descripción</strong>
+
+        <p>
+
+            {{ reporte[4] }}
+
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h4>Seguimiento del Reporte</h4>
+
+    <div class="barra-progreso">
+
+        {% if reporte[5] == "Pendiente" %}
+
+            <div class="paso activo">
+                🟡<br>Pendiente
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="paso">
+                ⚪<br>En proceso
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="paso">
+                ⚪<br>Resuelto
+            </div>
+
+        {% elif reporte[5] == "En proceso" %}
+
+            <div class="paso activo">
+                🟢<br>Pendiente
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="paso activo">
+                🟠<br>En proceso
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="paso">
+                ⚪<br>Resuelto
+            </div>
+
+        {% elif reporte[5] == "Resuelto" %}
+
+            <div class="paso activo">
+                🟢<br>Pendiente
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="paso activo">
+                🟢<br>En proceso
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="paso activo">
+                🟢<br>Resuelto
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    <div class="acciones">
+
+        <a href="/" class="boton-secundario">
+
+            📝 Nuevo Reporte
+
+        </a>
+
+        <a href="/consultar" class="boton-principal">
+
+            🔍 Nueva Consulta
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+{% if mensaje %}
+
+<div class="mensaje-error">
+
+    ❌ {{ mensaje }}
+
+</div>
+
+{% endif %}
+
+{% endblock %}

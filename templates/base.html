@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trinidad Reporta</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/estilo.css') }}">
+     
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="encabezado">
+
+            <div class="logo">
+
+                <img
+                    src="{{ url_for('static', filename='img/logo.png') }}"
+                    alt="Gobierno Autónomo Municipal de Trinidad">
+
+            </div>
+
+            <div class="titulo">
+
+                <h1>TRINIDAD REPORTA</h1>
+
+                <p>Sistema de Reporte Ciudadano</p>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <nav>
+
+        <a href="/">🏠 Inicio</a>
+
+        <a href="/">📝 Reportar</a>
+
+        <a href="/consultar">🔍 Consultar Reporte</a>
+
+        <a href="{{ url_for('acerca') }}">ℹ️ Acerca</a>
+
+        <a href="/admin">🔒 Administrador</a>
+
+    </nav>
+
+    <main class="{% if request.endpoint == 'panel_admin' %}contenido-admin{% else %}contenido{% endif %}">
+
+        {% block contenido %}
+
+        {% endblock %}
+
+    </main>
+
+    <footer>
+
+        <p><strong>Gobierno Autónomo Municipal de Trinidad</strong></p>
+
+        <p>Dirección de Tecnología e Innovación</p>
+
+        <p>Trinidad Reporta © 2026</p>
+
+    </footer>
+
+</body>
+
+</html>

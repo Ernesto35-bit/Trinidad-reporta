@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2>Editar Reporte</h2>
+
+<p class="subtitulo">
+
+Actualice el estado del reporte ciudadano.
+
+</p>
+
+<form method="POST">
+
+    <label>Código</label>
+
+    <input
+        type="text"
+        value="{{ reporte[1] }}"
+        readonly>
+
+    <label>Ciudadano</label>
+
+    <input
+        type="text"
+        value="{{ reporte[2] }}"
+        readonly>
+
+    <label>Barrio</label>
+
+    <input
+        type="text"
+        value="{{ reporte[3] }}"
+        readonly>
+
+    <label>Problema</label>
+
+    <input
+        type="text"
+        value="{{ reporte[4] }}"
+        readonly>
+
+    <label>Descripción</label>
+
+    <textarea
+        rows="5"
+        readonly>{{ reporte[5] }}</textarea>
+
+    <label>Fotografía del reporte</label>
+
+    {% if reporte[6] %}
+
+        <div style="text-align:center; margin-bottom:20px;">
+
+            <img
+                src="{{ url_for('static', filename='imagenes/' + reporte[6]) }}"
+                alt="Imagen del reporte"
+                style="max-width:100%; max-height:350px; border-radius:10px; border:1px solid #cccccc;">
+
+            <br><br>
+
+            <a
+                href="{{ url_for('static', filename='imagenes/' + reporte[6]) }}"
+                target="_blank"
+                class="boton-principal">
+
+                🔍 Ver tamaño completo
+
+            </a>
+
+        </div>
+
+    {% else %}
+
+        <p>No se adjuntó ninguna imagen.</p>
+
+    {% endif %}
+
+    <label>Estado del Reporte</label>
+
+    <select name="estado">
+
+        <option value="Pendiente"
+        {% if reporte[7] == "Pendiente" %}selected{% endif %}>
+            🟡 Pendiente
+        </option>
+
+        <option value="En proceso"
+        {% if reporte[7] == "En proceso" %}selected{% endif %}>
+            🟠 En proceso
+        </option>
+
+        <option value="Resuelto"
+        {% if reporte[7] == "Resuelto" %}selected{% endif %}>
+            🟢 Resuelto
+        </option>
+
+    </select>
+
+    <input
+        type="submit"
+        value="Guardar Cambios">
+
+</form>
+
+<br>
+
+<div class="acciones">
+
+    <a href="/panel_admin" class="boton-secundario">
+
+        ← Volver al Panel
+
+    </a>
+
+</div>
+
+{% endblock %}
+```

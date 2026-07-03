@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2>Panel del Administrador</h2>
+
+<p class="subtitulo">
+Bienvenido, <strong>{{ session["admin"] }}</strong>. Desde este panel puede administrar los reportes ciudadanos.
+</p>
+
+<div class="acciones-admin">
+
+    <a href="{{ url_for('configuracion') }}" class="boton-principal">
+        ⚙ Configuración
+    </a>
+
+    <a href="/logout" class="boton-cerrar">
+        🚪 Cerrar Sesión
+    </a>
+
+</div>
+
+<div class="estadisticas">
+
+    <div class="card-estadistica">
+        <h3>📄</h3>
+        <h2>{{ total }}</h2>
+        <p>Total Reportes</p>
+    </div>
+
+    <div class="card-estadistica">
+        <h3>🟡</h3>
+        <h2>{{ pendientes }}</h2>
+        <p>Pendientes</p>
+    </div>
+
+    <div class="card-estadistica">
+        <h3>🟠</h3>
+        <h2>{{ proceso }}</h2>
+        <p>En proceso</p>
+    </div>
+
+    <div class="card-estadistica">
+        <h3>🟢</h3>
+        <h2>{{ resueltos }}</h2>
+        <p>Resueltos</p>
+    </div>
+
+</div>
+
+<div class="tarjeta-reporte">
+
+    <h3>📋 Reportes Registrados</h3>
+
+    <div class="tabla-contenedor">
+
+    <table class="tabla-reportes">
+
+        <thead>
+
+        <tr>
+            <th class="col-codigo">Código</th>
+            <th class="col-ciudadano">Ciudadano</th>
+            <th class="col-barrio">Barrio</th>
+            <th class="col-problema">Problema</th>
+            <th class="col-imagen">Imagen</th>
+            <th class="col-estado">Estado</th>
+            <th class="col-fecha">Fecha</th>
+            <th class="col-accion">Acción</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for reporte in reportes %}
+
+        <tr>
+
+            <td class="col-codigo">{{ reporte[1] }}</td>
+
+            <td class="col-ciudadano">
+                {{ reporte[2] }}
+            </td>
+
+            <td class="col-barrio">
+                {{ reporte[3] }}
+            </td>
+
+            <td class="col-problema">
+                {{ reporte[4] }}
+            </td>
+
+            <td class="col-imagen">
+
+                {% if reporte[5] %}
+
+                <a href="{{ url_for('static', filename='imagenes/' + reporte[5]) }}" target="_blank">
+                    📷 Ver imagen
+                </a>
+
+                {% else %}
+                    Sin imagen
+                {% endif %}
+
+            </td>
+
+            <td class="col-estado">
+
+                {% set estado = reporte[6]|trim %}
+
+                {% if estado == "Pendiente" %}
+                    <span class="estado pendiente">🟡 Pendiente</span>
+
+                {% elif estado == "En proceso" %}
+                    <span class="estado proceso">🟠 En proceso</span>
+
+                {% elif estado == "Resuelto" %}
+                    <span class="estado resuelto">🟢 Resuelto</span>
+
+                {% else %}
+                    <span class="estado">{{ estado }}</span>
+                {% endif %}
+
+            </td>
+
+            <td class="col-fecha">
+                {{ reporte[7] }}
+            </td>
+
+            <td class="col-accion">
+
+                <a href="{{ url_for('editar_reporte', id=reporte[0]) }}"
+                   class="boton-principal">
+
+                    Editar
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

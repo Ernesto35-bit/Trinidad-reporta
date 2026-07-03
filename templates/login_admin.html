@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2>🔒 Acceso del Administrador</h2>
+
+<p class="subtitulo">
+
+Ingrese sus credenciales para acceder al panel administrativo.
+
+</p>
+
+<form method="POST">
+
+    <label>Usuario</label>
+
+    <input
+        type="text"
+        name="usuario"
+        required>
+
+    <label>Contraseña</label>
+
+    <div class="campo-password">
+
+        <input
+            type="password"
+            id="contraseña"
+            name="contraseña"
+            required>
+
+        <button
+            type="button"
+            class="btn-ojo"
+            onclick="mostrarPassword()">
+
+            <i
+                id="icono-ojo"
+                class="bi bi-eye"></i>
+
+        </button>
+
+    </div>
+
+    <input
+        type="submit"
+        value="Iniciar Sesión">
+
+</form>
+
+{% if mensaje %}
+
+<div class="mensaje-error">
+
+{{ mensaje }}
+
+</div>
+
+{% endif %}
+
+<script>
+
+function mostrarPassword(){
+
+    let campo = document.getElementById("contraseña");
+    let icono = document.getElementById("icono-ojo");
+
+    if(campo.type === "password"){
+
+        campo.type = "text";
+        icono.className = "bi bi-eye-slash";
+
+    }else{
+
+        campo.type = "password";
+        icono.className = "bi bi-eye";
+
+    }
+
+}
+
+</script>
+
+{% endblock %}

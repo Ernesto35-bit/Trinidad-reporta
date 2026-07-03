@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+{% if mensaje %}
+
+<div class="mensaje-exito">
+
+    <h3>✅ {{ mensaje }}</h3>
+
+    <p><strong>Código de seguimiento</strong></p>
+
+    <h2>{{ codigo }}</h2>
+
+    <p>
+
+        <strong>Fecha del reporte:</strong>
+
+        {{ fecha }}
+
+    </p>
+
+    <p>
+
+        <strong>Estado inicial:</strong>
+
+        🟡 Pendiente
+
+    </p>
+
+    <p>
+
+        Guarde este código para consultar el estado de su reporte.
+
+    </p>
+
+    <br>
+
+    <a href="/" class="boton-secundario">
+
+        📝 Registrar otro reporte
+
+    </a>
+
+    <a href="/consultar" class="boton-principal">
+
+        🔍 Consultar mi reporte
+
+    </a>
+
+</div>
+
+{% else %}
+
+<h2>Registrar Nuevo Reporte</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+    <label>Nombre del Ciudadano:</label>
+
+    <input
+        type="text"
+        name="nombre"
+        required>
+
+    <label>Barrio:</label>
+
+    <select name="barrio">
+
+        {% for barrio in barrios %}
+
+        <option value="{{ barrio[0] }}">
+
+            {{ barrio[1] }}
+
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <label>Tipo de Problema:</label>
+
+    <select name="problema">
+
+        {% for problema in problemas %}
+
+        <option value="{{ problema[0] }}">
+
+            {{ problema[1] }}
+
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <label>Descripción:</label>
+
+    <textarea
+        name="descripcion"
+        rows="6"
+        required></textarea>
+
+    <label>Adjuntar Imagen (opcional):</label>
+
+    <input
+        type="file"
+        name="imagen"
+        accept="image/*"
+        capture="environment">
+
+    <small>
+        Desde un celular podrá tomar una fotografía o elegir una imagen de la galería.
+    </small>
+
+    <input
+        type="submit"
+        value="Enviar Reporte">
+
+</form>
+
+{% endif %}
+
+{% endblock %}

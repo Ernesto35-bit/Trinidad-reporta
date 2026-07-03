@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2>⚙ Configuración del Administrador</h2>
+
+<p class="subtitulo">
+
+Desde esta sección puede cambiar el usuario y la contraseña del administrador.
+
+</p>
+
+<form method="POST">
+
+    <label>Usuario actual</label>
+
+    <input
+        type="text"
+        name="usuario_actual"
+        value="{{ administrador[1] }}"
+        required>
+
+    <label>Nuevo usuario</label>
+
+    <input
+        type="text"
+        name="nuevo_usuario"
+        required>
+
+    <label>Contraseña actual</label>
+
+    <div class="password-container">
+
+        <input
+            type="password"
+            id="contraseña_actual"
+            name="contraseña_actual"
+            required>
+
+        <i
+            <i
+            class="bi bi-eye toggle-password"
+            onclick="mostrarContraseña('contraseña_actual', this)">
+        </i>
+
+    </div>
+
+    <label>Nueva contraseña</label>
+
+    <div class="password-container">
+
+        <input
+            type="password"
+            id="nueva_contraseña"
+            name="nueva_contraseña"
+            required>
+
+        <i
+            c<i
+            class="bi bi-eye toggle-password"
+            onclick="mostrarContraseña('nueva_contraseña', this)">
+        </i>
+
+    </div>
+
+    <input
+        type="submit"
+        value="Guardar Cambios">
+
+</form>
+
+{% if mensaje %}
+
+<div class="mensaje-exito">
+
+    <h3>{{ mensaje }}</h3>
+
+</div>
+
+{% endif %}
+
+<div class="acciones">
+
+    <a href="{{ url_for('panel_admin') }}" class="boton-secundario">
+
+        ← Volver al Panel
+
+    </a>
+
+</div>
+
+<script>
+
+function mostrarContraseña(id, icono){
+
+    const campo = document.getElementById(id);
+
+    if(campo.type === "password"){
+
+        campo.type = "text";
+
+        icono.classList.remove("bi-eye");
+        icono.classList.add("bi-eye-slash");
+
+    }else{
+
+        campo.type = "password";
+
+        icono.classList.remove("bi-eye-slash");
+        icono.classList.add("bi-eye");
+
+    }
+
+}
+
+</script>
+
+{% endblock %}

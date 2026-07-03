@@ -1,0 +1,1011 @@
+/* ==========================================
+   ESTILOS GENERALES
+========================================== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #eef3f8;
+
+    color: #333333;
+
+}
+
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+header{
+
+    background: linear-gradient(to right,#005b96,#0078c2);
+
+    color: white;
+
+    padding: 20px 0;
+
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.25);
+
+}
+
+.encabezado{
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+}
+
+.logo{
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.logo img{
+
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: contain;
+
+}
+
+.titulo{
+
+    text-align: left;
+
+}
+
+.titulo h1{
+
+    font-size: 40px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+
+}
+
+.titulo p{
+
+    font-size: 18px;
+
+    color: #e8f4ff;
+
+}
+
+
+/* ==========================================
+   MENÚ
+========================================== */
+
+nav{
+
+    background-color: #003f6b;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    padding: 15px;
+
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.20);
+
+}
+
+nav a{
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    transition: all 0.3s;
+
+}
+
+nav a:hover{
+
+    background-color: white;
+
+    color: #003f6b;
+
+}
+
+
+/* ==========================================
+   CONTENIDO
+========================================== */
+
+.contenido{
+
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: 40px auto;
+
+}
+
+
+/* ==========================================
+   TARJETA
+========================================== */
+
+form{
+
+    background-color: white;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+
+}
+
+h2{
+
+    text-align: center;
+
+    color: #005b96;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* ==========================================
+   ETIQUETAS
+========================================== */
+
+label{
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-top: 18px;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* ==========================================
+   CAMPOS
+========================================== */
+
+input[type=text],
+input[type=password],
+select,
+textarea{
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #c8d0d8;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+
+}
+
+input[type=file]{
+
+    margin-top: 10px;
+
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+select:focus,
+textarea:focus{
+
+    border-color: #0078c2;
+
+    outline: none;
+
+    box-shadow: 0px 0px 5px rgba(0,120,194,0.30);
+
+}
+
+textarea{
+
+    resize: vertical;
+
+}
+
+
+/* ==========================================
+   BOTÓN
+========================================== */
+
+input[type=submit]{
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 14px;
+
+    background-color: #005b96;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+input[type=submit]:hover{
+
+    background-color: #0078c2;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ==========================================
+   MENSAJE DE CONFIRMACIÓN
+========================================== */
+
+.mensaje-exito{
+
+    background: #e8f8ec;
+
+    border-left: 6px solid #28a745;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.10);
+
+}
+
+.mensaje-exito h3{
+
+    background: transparent;
+
+    color: #155724;
+
+    margin-bottom: 15px;
+
+    padding: 0;
+
+}
+
+.mensaje-exito h2{
+
+    color: #005b96;
+
+    font-size: 34px;
+
+    margin: 15px 0;
+
+}
+
+.mensaje-exito p{
+
+    margin: 8px 0;
+
+    font-size: 16px;
+
+}
+
+
+/* ==========================================
+   ENLACES
+========================================== */
+
+a{
+
+    color: #005b96;
+
+    text-decoration: none;
+
+}
+
+a:hover{
+
+    text-decoration: underline;
+
+}
+
+
+/* ==========================================
+   PIE DE PÁGINA
+========================================== */
+
+footer{
+
+    background-color: #003f6b;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 40px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    .encabezado{
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 15px;
+
+    }
+
+    .titulo{
+
+        text-align: center;
+
+    }
+
+    .titulo h1{
+
+        font-size: 30px;
+
+    }
+
+    .logo img{
+
+        width: 90px;
+
+        height: 90px;
+
+    }
+
+    nav{
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+}
+/* ==========================================
+   BOTONES DE CONFIRMACIÓN
+========================================== */
+
+.boton-principal,
+.boton-secundario,
+.boton-cerrar{
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 200px;
+
+    height: 48px;
+
+    margin: 10px;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    box-sizing: border-box;
+
+}
+/* ==========================================
+   CONSULTAR REPORTE
+========================================== */
+
+.subtitulo{
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 25px;
+
+    font-size: 17px;
+
+}
+
+.tarjeta-reporte{
+
+    background: white;
+
+    margin-top: 35px;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0px 5px 18px rgba(0,0,0,0.15);
+
+    overflow-x:auto;
+
+}
+.tarjeta-reporte h3{
+
+    text-align: center;
+
+    color: #005b96;
+
+    margin-bottom: 20px;
+
+}
+
+.tarjeta-reporte h4{
+
+    text-align: center;
+
+    color: #005b96;
+
+    margin-top: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+.tarjeta-reporte hr{
+
+    margin: 20px 0;
+
+    border: none;
+
+    border-top: 1px solid #dddddd;
+
+}
+
+
+/* ==========================================
+   FILAS DE INFORMACIÓN
+========================================== */
+
+.fila{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+.fila strong{
+
+    color: #005b96;
+
+}
+
+.fila span{
+
+    font-weight: bold;
+
+}
+
+
+/* ==========================================
+   DESCRIPCIÓN
+========================================== */
+
+.descripcion{
+
+    margin-top: 20px;
+
+}
+
+.descripcion strong{
+
+    color: #005b96;
+
+}
+
+.descripcion p{
+
+    margin-top: 10px;
+
+    background: #f7f9fb;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================
+   ESTADOS
+========================================== */
+
+.estado{
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+}
+
+.estado.pendiente{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.estado.proceso{
+    background:#ffe5b4;
+    color:#b35c00;
+}
+
+.estado.resuelto{
+    background:#d4edda;
+    color:#155724;
+}
+/* ==========================================
+   BARRA DE PROGRESO
+========================================== */
+
+.barra-progreso{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 20px;
+
+}
+
+.paso{
+
+    text-align: center;
+
+    font-size: 15px;
+
+    width: 120px;
+
+}
+
+.paso.activo{
+
+    font-weight: bold;
+
+}
+
+.linea{
+
+    flex: 1;
+
+    height: 4px;
+
+    background: #d0d0d0;
+
+    margin: 0 10px;
+
+    border-radius: 20px;
+
+}
+
+
+/* ==========================================
+   ACCIONES
+========================================== */
+
+.acciones{
+
+    text-align: center;
+
+    margin-top: 30px;
+
+}
+
+
+/* ==========================================
+   MENSAJE DE ERROR
+========================================== */
+
+.mensaje-error{
+
+    background: #fdeaea;
+
+    border-left: 6px solid #dc3545;
+
+    color: #842029;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    font-weight: bold;
+
+}
+/* ==========================================
+   LOGIN ADMINISTRADOR
+========================================== */
+
+.login-admin{
+
+    max-width: 500px;
+
+    margin: auto;
+
+}
+
+.login-admin form{
+
+    margin-top: 20px;
+
+}
+
+.login-admin h2{
+
+    margin-bottom: 15px;
+
+}
+
+.login-admin .subtitulo{
+
+    margin-bottom: 30px;
+
+}
+/* ==========================================
+   TABLA ADMINISTRADOR
+========================================== */
+
+.tabla-contenedor{
+    width:100%;
+    overflow-x:auto;
+}
+
+.tabla-reportes{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:25px;
+
+    table-layout:fixed;
+
+}
+
+.tabla-reportes th{
+
+    background:#005b96;
+
+    color:white;
+
+    padding:16px 10px;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+}
+
+.tabla-reportes td{
+
+    padding:18px 10px;
+
+    border-bottom:1px solid #dddddd;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+    word-break:break-word;
+
+    overflow-wrap:break-word;
+
+}
+
+.tabla-reportes tr:nth-child(even){
+
+    background:#f7f9fb;
+
+}
+
+.tabla-reportes tr:hover{
+
+    background:#eef6fc;
+
+}
+
+/* ANCHO DE CADA COLUMNA */
+
+.col-codigo{
+    width:12%;
+}
+
+.col-ciudadano{
+    width:12%;
+}
+
+.col-barrio{
+    width:18%;
+}
+
+.col-problema{
+    width:16%;
+}
+
+.col-imagen{
+    width:11%;
+}
+
+.col-estado{
+    width:18%;
+}
+
+.col-fecha{
+    width:13%;
+}
+
+.col-accion{
+    width:13%;
+}
+/* ==========================================
+   ACCIONES DEL ADMINISTRADOR
+========================================== */
+
+.acciones-admin{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.boton-cerrar{
+
+    background:#dc3545;
+
+    color:white;
+
+}
+
+.boton-cerrar:hover{
+
+    background:#bb2d3b;
+
+    text-decoration:none;
+
+}
+/* ==========================================
+   MOSTRAR CONTRASEÑA
+========================================== */
+
+.password-container{
+
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.password-container input{
+
+    width: 100%;
+
+    padding-right: 50px;
+
+}
+
+.toggle-password{
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    color: #666;
+
+    z-index: 10;
+
+}
+
+.toggle-password:hover{
+
+    color: #005b96;
+
+}
+/* ==========================================
+   ESTADÍSTICAS DEL ADMINISTRADOR
+========================================== */
+
+.estadisticas{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.card-estadistica{
+
+    flex:1;
+
+    min-width:180px;
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:0px 4px 12px rgba(0,0,0,0.12);
+
+    transition:.3s;
+
+}
+
+.card-estadistica:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.card-estadistica h3{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.card-estadistica h2{
+
+    color:#005b96;
+
+    margin:0;
+
+    font-size:34px;
+
+}
+
+.card-estadistica p{
+
+    margin-top:10px;
+
+    color:#666;
+
+    font-weight:bold;
+
+}
+/* Botón Editar dentro de la tabla */
+
+.tabla-reportes .boton-principal{
+
+    min-width: auto;
+
+    width: auto;
+
+    display: inline-block;
+
+    margin: 0;
+
+    padding: 8px 12px;
+
+    height: auto;
+
+    line-height: normal;
+
+    font-size: 15px;
+
+}
